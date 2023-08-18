@@ -38,16 +38,14 @@ class EtudiantController extends Controller
     {
          // Valider les données du formulaire
 
-         $etudiants = Etudiant::all();
-         Etudiant::create([
-            'nom' => $request->input('nom'),
-            'prenom' => $request->input('prenom'),
-            'classe' => $request->input('classe'),
-            // Valeur par defaut
-            'action' => 'Inscription',
-        ]);
+        $etudiant = new Etudiant();
+        $etudiant->nom = $request->nom;
+        $etudiant->prenom = $request->prenom;
+        $etudiant->classe = $request->classe;
+        $etudiant->action = 'Inscription';
+        $etudiant->save();
 
-        return view('etudiant.liste', compact('etudiants'));
+        return redirect('/')->with('status', 'L\'étudiant a bien été ajouté avec succés.');
     }
 
     /**
