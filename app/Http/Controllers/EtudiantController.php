@@ -79,6 +79,11 @@ class EtudiantController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Recherche l'étudiant à supprimer
+        $etudiant = Etudiant::findOrFail($id);
+        // Supprime l'étudiant
+        $etudiant->delete();
+    
+        return redirect()->route('etudiants.index')->with('success', 'Étudiant supprimé avec succès.');
     }
 }

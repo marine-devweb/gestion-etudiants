@@ -26,8 +26,14 @@
                                 <td>{{ $etudiant->prenom }}</td>
                                 <td>{{ $etudiant->classe }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-warning">Modifier</a>
-                                    <a href="#" class="btn btn-danger">Supprimer</a>
+                                    <a href="{{ route('etudiants.edit', $etudiant->id) }}" class="btn btn-warning">Modifier</a>
+                                    
+                                    <form action="{{ route('etudiants.destroy', $etudiant->id) }}" method="POST" style="display: inline-block">
+                                        @csrf
+                                        <!-- Requête de suppression -->
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')">Supprimer</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
