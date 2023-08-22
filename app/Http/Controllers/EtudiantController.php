@@ -84,7 +84,7 @@ class EtudiantController extends Controller
         $etudiant->save();
 
         // Redirection vers la route d'édition avec l'ID de l'étudiant en tant que paramètre
-        return redirect()->route('edit_liste_etudiants', ['etudiant' => $etudiant->id])->with('success', 'Étudiant mis à jour avec succès.');
+        return redirect()->route('etudiants.edit', ['etudiant' => $etudiant->id])->with('success', 'Étudiant mis à jour avec succès.');
     }
 
     /**
