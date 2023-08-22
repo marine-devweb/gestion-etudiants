@@ -3,6 +3,12 @@
 @section('content')
 <div class="container mt-5">
     <h1>Edition de l'étudiant</h1>
+    
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <form action="{{ route('etudiants.update', $etudiant->id) }}" method="POST">
     @csrf
