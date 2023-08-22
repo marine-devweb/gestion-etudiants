@@ -4,6 +4,11 @@
     <div class="container text-center">
         <div class="row">
             <div class="col s12">
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <h1>Liste des étudiants</h1>
                 <hr>
                 <a href="/etudiants/create" class="btn btn-primary">Ajouter un étudiant</a>
@@ -27,7 +32,7 @@
                                 <td>{{ $etudiant->classe }}</td>
                                 <td>
                                     <a href="{{ route('etudiants.edit', $etudiant->id) }}" class="btn btn-warning">Modifier</a>
-                                    
+
                                     <form action="{{ route('etudiants.destroy', $etudiant->id) }}" method="POST" style="display: inline-block">
                                         @csrf
                                         <!-- Requête de suppression -->

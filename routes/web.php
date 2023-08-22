@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::resource('etudiants', EtudiantController::class);
-Route::get('/', [EtudiantController::class, 'liste_etudiant']);
+Route::get('/', [EtudiantController::class, 'liste_etudiant'])->name('liste_etudiants');

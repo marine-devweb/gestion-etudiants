@@ -82,6 +82,6 @@ class EtudiantController extends Controller
         // Supprime l'étudiant
         $etudiant->delete();
     
-        return redirect()->route('etudiants.index')->with('success', 'Étudiant supprimé avec succès.');
+        return redirect()->route('liste_etudiants')->with('success', 'Étudiant supprimé avec succès.');
     }
 }
