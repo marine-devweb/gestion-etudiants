@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form class="mx-5" action="{{ route('etudiants.show', $etudiant->id) }}" method="GET">
+<form class="mx-5 no-edit bold" action="{{ route('etudiants.show', $etudiant->id) }}" method="GET">
     @csrf
     <div class="mb-3 mt-5">
         <label for="Nom" class="form-label">Nom</label>

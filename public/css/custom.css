@@ -1,0 +1,12 @@
+.hidden {
+    font-size: 40px;
+}
+
+.bold {
+    font-weight:bold;
+}
+
+.no-edit {
+    pointer-events: none;
+    background-color: #f8f9fa;
+}
