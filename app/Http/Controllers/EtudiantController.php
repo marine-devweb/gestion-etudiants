@@ -61,7 +61,10 @@ class EtudiantController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Recherche de l'étudiant à éditer
+        $etudiant = Etudiant::findOrFail($id);
+
+        return view('etudiant.edition', compact('etudiant'));
     }
 
     /**
@@ -69,7 +72,19 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Recherche l'étudiant à mettre à jour
+        $etudiant = Etudiant::findOrFail($id);
+
+        // Met à jour les champs du formulaire
+        $etudiant->nom = $request->input('nom');
+        $etudiant->prenom = $request->input('prenom');
+        $etudiant->classe = $request->input('classe');
+        
+        // Enregistre les modifications
+        $etudiant->save();
+
+        // Redirection vers la route d'édition avec l'ID de l'étudiant en tant que paramètre
+        return redirect()->route('edit_liste_etudiants', ['etudiant' => $etudiant->id])->with('success', 'Étudiant mis à jour avec succès.');
     }
 
     /**

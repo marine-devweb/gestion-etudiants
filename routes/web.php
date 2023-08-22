@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 Route::resource('etudiants', EtudiantController::class);
 Route::get('/', [EtudiantController::class, 'liste_etudiant'])->name('liste_etudiants');
+Route::get('etudiants/{etudiant}/edit', [EtudiantController::class, 'edit'])->name('edit_liste_etudiants');
